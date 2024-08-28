@@ -1,0 +1,69 @@
+window.handle.width: 0
+
+# Set border width
+window.client.padding.width: 0
+border.width: 2
+
+# Set border color
+window.*.client.color: #43484b
+window.*.border.*.color: #43484b
+
+
+## TITLE
+
+window.label.text.justify: center
+
+# Button shit
+window.*.button.iconify.unpressed.image.color: #CCCCCC
+window.*.button.max.unpressed.image.color: #747474
+window.*.button.close.unpressed.image.color: #5b5b5b
+window.*.button.iconify.hover.image.color: #df9e07
+window.*.button.max.hover.image.color: #24a83a
+window.*.button.close.hover.image.color: #dd1308
+window.*.button.toggled.unpressed.image.color: #747474
+window.*.button.toggled.hover.image.color: #747474
+
+
+window.inactive.button*image.color: #3a3a3a
+
+
+
+padding.width: 6
+padding.height: 7
+
+# Set title colors
+window.*.title.bg: Solid Flat
+window.*.*.bg: Parentrelative
+window.*.title.bg.color: #1b1f22
+
+window.active.label.text.color: #E8DFD6
+window.inactive.label.text.color: #979dac
+
+
+window.*.title.separator.color: #1b1f22
+
+
+# Switching Windows
+
+osd.border.color: #E8DFD6
+osd.border.width: 0
+
+
+## MENU
+
+# Set menu colors
+menu.*.bg: Solid Flat
+menu.*.bg.color: #EEEEEE
+menu.*.text.color: #021B21
+
+# Add some padding
+menu.border.width: 20
+menu.border.color: #EEEEEE
+
+# Add some submenu padding
+menu.overlap.x: -30
+menu.overlap.y: 0
+
+# Add padding between items
+menu.separator.padding.height: 3
+menu.separator.color: #EEEEEE

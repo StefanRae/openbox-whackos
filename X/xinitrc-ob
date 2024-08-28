@@ -1,0 +1,9 @@
+picom &
+wallpaper &
+~/Scripts/music_playing.sh &
+xrdb .Xresources &
+tint2 -c /home/stefan/.config/tint2/mac_launcher.tint2rc &
+tint2 -c /home/stefan/.config/tint2/mac_clock_info.tint2rc &
+tint2 -c /home/stefan/.config/tint2/mac_taskbar.tint2rc &
+dunst &
+exec openbox-session
