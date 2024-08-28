@@ -20,5 +20,5 @@ My interpretation of a WhiteSur MacOs look using openbox, tint2 and picom
 + **Video Player**: MPV
 + **PDF Viewer**: Zathura
 + **Image Viewer**: [nsxiv](https://github.com/nsxiv/nsxiv)
-+ **Spotify Terminal**: [spotify_player](https://github.com/aome510/spotify_player)
++ **Spotify Terminal**: [spotify_player](https://github.com/aome510/spotify-player)
 + **OS**: [EndeavourOS](https://endeavouros.com/)
