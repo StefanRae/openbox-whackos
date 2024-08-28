@@ -1,9 +1,14 @@
 # openbox-whackos
 My interpretation of a WhiteSur MacOs look using openbox, tint2 and picom
 
-![Showing of the Terminal and playing some Stalio and Olio](https://github.com/StefanRae/openbox-whackos/blob/main/0.png?raw=true)
-![Pretending to read](https://github.com/StefanRae/openbox-whackos/blob/main/1.png?raw=true)
-![Showing of the Tiling features with zentile](https://github.com/StefanRae/openbox-whackos/blob/main/2.png?raw=true)
+![Showing of the Terminal and playing some Stalio and Olio](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+*Showing of the Terminal and playing some Stalio and Olio*
+
+![Pretending to read](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+*Pretending to read*
+
+![Showing of the Tiling features with zentile](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+*Showing of the Tiling features with zentile*
 
 ## Dots:
 
