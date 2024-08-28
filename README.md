@@ -1,6 +1,10 @@
 # openbox-whackos
 My interpretation of a WhiteSur MacOs look using openbox, tint2 and picom
 
+![[0.png]]
+![[1.png]]
+![[2.png]]
+
 ## Dots:
 
 + **WM**: [Openbox](https://github.com/danakj/openbox), [patched](https://github.com/patrikrog/openbox-patches)
