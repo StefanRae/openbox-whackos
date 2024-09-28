@@ -1,0 +1,154 @@
+(defpoll time :interval "10s"
+  "date '+%H.%M'")
+
+(defpoll music :interval "1s"
+    "/home/stefan/Scripts/eww/eww_status.sh"
+)
+
+(defpoll spotify_progress :interval "2s"
+    "/home/stefan/Scripts/eww/spotify_progress.sh"
+)
+
+(defvar launcher_rev false)
+(defvar dummy_rev true)
+(defvar extbar_rev false)
+
+
+; (defvar eww "$HOME/.config/eww/")
+
+(defwindow status
+    :monitor 0
+    :geometry (geometry :x "2.5%"
+                        :y "-25px"
+                        ; :y "-50px"
+                        :anchor "bottom left")
+    :stacking "bg"
+    :reserve (struts :distance "20px" :side "top")
+    :windowtype "desktop"
+    :wm-ignore false
+    :clss "window"
+
+    (box
+        :class "init"
+        :orientation "v"
+        (eventbox
+            :class "eventbox_1"
+            :onhover "eww update launcher_rev=true ; eww update dummy_rev=false"
+            ; :onhoverlost "(sleep 0.5; eww update launcher_rev=false ; eww update dummy_rev=true ; eww update extbar_rev=false)"
+            :onhoverlost "eww update launcher_rev=false ; eww update dummy_rev=true ; eww update extbar_rev=false"
+            ; :onclick "eww update launcher_rev=true ; eww update dummy_rev=false"
+            (box :orientation "vertical" :space-evenly 0
+            (reveal_dummy :transition "slidebottom")
+            (status_elements)
+            (reveal_launcher :transition "slideup")
+            ))))
+
+(defwidget reveal_launcher [transition]
+    (revealer
+        :reveal launcher_rev
+        :transition {transition ?: "slidebottom"}
+        :duration "400ms"
+        (box :orientation "horizontal" :height 80
+            (taskbar)
+            ))
+)
+
+(defwidget reveal_dummy [transition]
+    (revealer
+        :reveal dummy_rev
+        :transition {transition ?: "slideup"}
+        :duration "400ms"
+        (box :orientation "horizontal" :class "dummy" :height 80
+            (dummybar)))
+)
+
+(defwidget status_elements[]
+    (box
+        :class "status" 
+        :space-evenly 0
+        :orientation "h"
+        (label :text "${time}"
+        :halign "start"
+        :class "time")
+        (box :orientation "vertical" :class "music"
+            (label
+            :text "${music}"
+            :limit-width 40
+            :halign "start"
+            :class "music_text"
+            :justify "left"
+            )
+            (progress
+                :class "prog"
+                :value spotify_progress
+                :orientation "h"
+                :height 9
+                :valign "start")))
+
+)
+
+(defwidget dummybar[]
+    (box :class "dummy" 
+    :space-evenly true 
+    :height 64
+    :width 32
+    )
+)
+
+
+(defwidget taskbar[]
+    (box 
+        :orientation "horizontal"
+        :class "dummy"
+        ; :width 1830
+        :space-evenly false
+        (box
+            :class "taskbar"
+            :space-evenly false 
+            :spacing 7
+            :width 32
+                (launcher_button :onclick "firefox &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/firefox.svg")
+                (launcher_button :onclick "thunar /home/stefan &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/thunar.svg")
+                (launcher_button :onclick "code" :path "/home/stefan/.icons/WhiteSur/apps/scalable/vscode.svg")
+                ; (launcher_button :onclick "urxvt -e spotify_player &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/web-spotify.svg")
+                (launcher_button :onclick "eww update extbar_rev=true" :path "/home/stefan/Downloads/arrow.svg" :image-height 24 :image-width 24)
+        ) 
+        (reveal_extended_bar :transition "slideright")
+        ; (dummybar)     
+    )
+
+)
+
+(defwidget reveal_extended_bar [transition]
+    (revealer
+        :reveal extbar_rev
+        :transition {transition ?: "slideleft"}
+        :duration "200ms"
+        (box :orientation "horizontal" :height 80
+            (extendedbar)))
+)
+
+(defwidget extendedbar[]
+    (box :class "ebar" 
+    :space-evenly true
+    :spacing 7
+        (launcher_button :onclick "urxvt -e spotify_player &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/web-spotify.svg")
+        (launcher_button :onclick "discord &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/com.discordapp.Discord.svg")
+        (launcher_button :onclick "obsidian &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/md.obsidian.Obsidian.svg")
+        (launcher_button :onclick "obs &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/obs.svg")
+        (launcher_button :onclick "virtualbox &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/virtualbox.svg")
+        (launcher_button :onclick "rofi -show run &" :path "/home/stefan/.icons/WhiteSur/apps/scalable/krunner.svg")
+    )
+)
+
+(defwidget launcher_button[onclick path ?image-height ?image-width]
+    (button
+        :onclick onclick
+        :class "entry app"
+        (image
+            :path path
+            :image-height {image-height ?: 48}
+            :image-width {image-width ?: 48}
+        )
+    )
+)

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="100">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(255,126,95);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(254,180,123);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <text x="20" y="50" font-family="'San Francisco Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="45" fill="url(#grad1)">
+    15.48
+  </text>
+</svg>

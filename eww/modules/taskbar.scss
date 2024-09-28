@@ -1,0 +1,47 @@
+.taskbar_bottem {
+    background-color: transparent;
+}
+
+.taskbar_style {
+    background: linear-gradient(90.01deg, rgba(221, 221, 221, 0.2662) 3.54%, rgba(221, 221, 221, 0.1) 99.99%);
+    background: rgba(221, 221, 221, 0.2662);
+    background: rgba(221, 221, 221, 0.1);   
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.253)) 1;
+}
+
+.music_button {
+    border-radius: 15px;
+    padding: 0px 5px;
+    background-color: transparent;
+    border-color: transparent;
+    margin-top: 4px;
+}
+
+.desktop_nr {
+    background: transparent;
+    margin-left: -10px;
+    font-family: "SF Pro Rounded";
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+
+
+.left_modules {
+    margin-left: 25px;
+}
+
+.right_modules {
+    margin-left: 25px;
+}
+
+.desktop_button {
+    margin-bottom: -6px;
+}
+
+.left_modules {
+    margin-right: -300px;
+}

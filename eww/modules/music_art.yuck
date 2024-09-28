@@ -1,0 +1,64 @@
+(defwindow music_art
+    :monitor 0
+    :geometry (geometry :x "0px"
+                        :y "-40px"
+                        :anchor "bottom center")
+    :stacking "fg"
+    :windowtype "desktop"
+    :wm-ignore false
+    :clss "window"
+    :wm-ignore true
+    (music_art_widget)
+)
+
+(defwidget music_art_widget[]
+    (box
+        :class "border"
+        :space-evenly 0
+        (box
+            :orientation "v"
+            ; :class "album"
+            :width 260
+            :height 260
+            :style "
+            background-image: 
+              linear-gradient(0deg, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0)),
+              url(\"/tmp/spotify_album_cover.jpg\");
+            background-size: cover;
+            background-position: center;
+            margin: 9px;
+            "
+            (box
+                (button
+                    :class "music_button"
+                    :onclick "/home/stefan/Scripts/eww/move_spot_to_ws.sh"
+                (image
+                    :class "spotify_logo"
+                    :halign "end"
+                    :valign "start"
+                    :image-width 32
+                    :image-height 32
+                    :path "/home/stefan/Downloads/spotify_logo.svg")))
+            (box
+            :orientation "v"
+            (box
+                :halign "center"
+                :valign "end"
+                :hexpand 1
+                :class "buttonbox"
+                :orientation "h"
+                :space-evenly 1
+                (player_icon :onclick "spotify_player playback repeat" :halign "start" :path "/home/stefan/Downloads/normal.svg" :image-width 16 :image-height 16) 
+                (player_icon :onclick "spotify_player playback previous ; /home/stefan/Scripts/eww/album_cover.sh" :halign "center" :path "/home/stefan/Downloads/previous.svg" :image-width 20 :image-height 20) 
+                (player_icon :onclick "spotify_player playback play-pause" :halign "center" :path "/home/stefan/Downloads/pause.svg" :image-width 48 :image-height 48) 
+                (player_icon :onclick "spotify_player playback next ; /home/stefan/Scripts/eww/album_cover.sh" :halign "center" :path "/home/stefan/Downloads/next.svg" :image-width 20 :image-height 20) 
+                (player_icon :onclick "spotify_player playback shuffle" :halign "end" :path "/home/stefan/Downloads/shuffle.svg" :image-width 16 :image-height 16) 
+            )
+        )
+        )
+    )
+)
+
+(defwidget player_icon[halign path onclick ?image-width ?image-height]
+    (button :halign halign :onclick onclick :class "music_button" (image :path path :image-width {image-width ?: 32} :image-height {image-height ?: 32}))
+)

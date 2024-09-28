@@ -1,0 +1,23 @@
+(defvar eww "$HOME/.config/eww/")
+
+(include "./modules/status.yuck")
+(include "./modules/widgets.yuck")
+(include "./modules/music_art.yuck")
+(include "./modules/taskbar.yuck")
+
+; (defwindow test
+;     :monitor 0
+;     :geometry (geometry :x "0%"
+;                         :y "40px"
+;                         :width "100%"
+;                         :height "100px"
+;                         :anchor "top center")
+;     :stacking "fg"
+;     :reserve (struts :distance "40px" :side "top")
+;     :windowtype "desktop"
+;     :wm-ignore false
+;     (box
+;         :orientation "vertical"
+;         (box
+;             :class "test")
+;     ))

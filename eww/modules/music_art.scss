@@ -1,0 +1,33 @@
+.music_art {
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.border {
+    background-color: #DDDDDD;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+.album {
+    background-image: 
+        linear-gradient(0deg, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0)),
+        url("/tmp/spotify_album_cover.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 9px;
+}
+
+.buttonbox {
+    background-position: center center;
+}
+
+.music_button {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.spotify_logo {
+    margin-top: 3px;
+    margin-right: 3px;
+    padding: 5px;
+}

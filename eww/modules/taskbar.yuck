@@ -1,0 +1,105 @@
+(defpoll desktop_nr :interval "0.1s"
+    "/home/stefan/Scripts/desktop.sh")
+
+(deflisten taskbar_test
+    `tail -F /tmp/taskbar.txt`)
+
+
+(defwindow taskbar_bottem
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "0px"
+                        :width "100%"
+                        :height "32px"
+                        :anchor "bottom center")
+    :stacking "fg"
+    :reserve (struts :distance "40px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
+    
+    (box
+        :width 1920
+        :height 32
+        :class "taskbar_style"
+        :orientation "h"
+        ; :space-evenly 0
+        (left)
+        (center)
+        (right)
+
+    )
+)
+
+(defwidget left []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "fill"
+		 :class "left_modules"
+         :hexpand true
+         (desktop)
+         (taskbar_widget)
+))
+
+(defwidget center []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "center"
+		 :class "center_modules"
+         (music_art)
+))
+
+(defwidget right []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "end"
+		 :class "right_modules"
+         (desktop)
+))
+
+
+
+(defwidget desktop[]
+    (box
+        (image
+            :class "desktop_button"
+            :path "/home/stefan/Downloads/desktop.svg")
+        (label
+            :class "desktop_nr"
+            :text desktop_nr))
+)
+
+(defwidget music_art[]
+    (box
+        :orientation "h"
+        :space-evenly false
+        :halign "center"
+        (button
+            :class "music_button"
+            :halign "center"
+            :onclick "eww open --toggle music_art"
+            (image
+                :halign "center"
+                :path "/home/stefan/Downloads/music.svg")
+    ))
+)
+
+(defwidget taskbar_widget[]
+    (box
+        :orientation "v"
+        :space-evenly 0
+        :hexpand true
+        ; :halign "fill"
+        ; :valign "fill"
+        (box
+        :orientation "h"
+            ; (button
+            ;     (label
+            ;     :text "window")
+            ; )
+            (literal
+            :content taskbar_test)
+        )
+    )
+)
+
+; background: rgba(221, 221, 221, 0.2662);    
